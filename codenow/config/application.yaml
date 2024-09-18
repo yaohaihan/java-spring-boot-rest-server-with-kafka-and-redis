@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: aia-spring-auth-service
+  redis:
+    url: redis://client-auth-redis.managed-components:6379
+#    url: redis://localhost:6379
+  main:
+    banner-mode: off
+  zipkin:
+    enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+kafka:
+  broker:
+    url: client-logging-kafka-kafka-bootstrap.managed-components:9092
+#   url: localhost:29092
+  topic:
+    name: client-logging
+    key: client-data-service
